@@ -6,13 +6,13 @@ Git：当今世界上最好用的版本管理工具；GitHub：当今最好的�
 
 一些基本git命令的使用：
 git  status   查看git状态
-git   clear     清屏幕
-git   add   [文件名]/.(全部)
-ls -al    查看当前文件夹下的文件状态
-git   commint  -m  ""   提交到git仓库
-git   push  -u  origin  master
+git  clear     清屏幕
+git  add   [文件名]/.(全部)
+ls   -al    查看当前文件夹下的文件状态
+git  commint  -m  ""   提交到git仓库
+git  push  -u  origin  master
 git  clone  [路径]    克隆代码到本地仓库
-pwd   查看当前位置
+pwd  查看当前位置
 
 2、工欲善其事必先利其器，来到这个训练营更多的一个收获就是可以get到一些顶级程序员的开发经验，他们日常的工作习惯，常用的工具，比如：老师提到的自顶向下的编程方式，一些指法上的小操作，善用IDEA的代码补全，规范的code style等。跟随牛人的脚步，自己也可以慢慢成为牛人。
 
