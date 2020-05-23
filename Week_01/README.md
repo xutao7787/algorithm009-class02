@@ -26,4 +26,44 @@ pwd   查看当前位置
 
 4、算法与数据结构一直是自己的一块短板，以前没重视，但是想提高这是必须要突破的一个瓶颈。本周每天做题都感觉自己像个弱智，读完题各种懵逼。有的题不用说解法，就连题里问的是啥都不知道，相当挫败。但既然决心要攻破这块，那就跟着老师一步一步学吧，谁曾经还没有当“弱智”的那么一个阶段呢，加油！
 
-5、
+5、分析 Queue 和 Priority Queue 的源码
+
+.Queue是一个接口，继承自Collection接口，主要方法有：
+
+boolean add(E e):在不违背队列容量的情况下成功插入返回true，超出容量会抛出IllegalStateException异常。
+
+boolean offer(E e): 在不违背队列容量的情况下成功插入返回true，超出容量无法插入返回false。
+
+E remove():删除并返回队首元素，如果是空队列抛出NoSuchElementException异常。
+
+E poll():删除并返回队首元素，如果是空队列返回null
+
+E element():查询并返回队首元素，如果为空队列抛出异常。
+
+E peek():查询并返回队首元素，如果为空队列返回null。
+
+
+.PriorityQueue: extends AbstractQueue  --  AbstractQueue implements Queue
+
+private static final int DEFAULT_INITIAL_CAPACITY = 11;
+
+默认初始容量：11
+
+add()方法直接return offer(),两方法一致。
+
+public boolean offer(E e) {
+    if (e == null)
+        throw new NullPointerException();
+    modCount++;
+    int i = size;
+    if (i >= queue.length)
+        grow(i + 1);
+    size = i + 1;
+    if (i == 0)
+        queue[0] = e;
+    else
+        siftUp(i, e);
+    return true;
+}
+
+如果容量不够进行扩容，在插入过程中会通过siftUp方法进行排序。
