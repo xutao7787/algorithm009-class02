@@ -1,6 +1,7 @@
 package Week03;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -23,25 +24,29 @@ import java.util.List;
  * Created by xutao on 2020/6/5.
  */
 public class Combine_77 {
-    List<List<Integer>> ans = new ArrayList<>();
     int n,k;
+    List<List<Integer>> ans = new LinkedList<>();
 
     public List<List<Integer>> combine(int n, int k) {
-        if( n == 0 || k == 0 ) return ans;
+        if(n == 0 || k == 0 ) return ans;
         this.n = n;
         this.k = k;
-        dfs(1,new ArrayList<>());
+        dfs(new LinkedList<Integer>() , 1);
         return ans;
     }
 
-    private void dfs(int index ,List<Integer> list) {
-        if(list.size() == k)
+    private void dfs(LinkedList<Integer> list, int index) {
+        if(list.size() == k) {
             ans.add(new ArrayList<>(list));
+            return;
+        }
 
         for (int i = index; i <= n; i++) {
             list.add(i);
-            dfs(i + 1,list);
-            list.remove(list.size()-1);
+            dfs(list,i + 1);
+            list.removeLast();
         }
+
     }
+
 }
